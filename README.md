@@ -1,4 +1,4 @@
-# Secure Task Management API
+# A Secure Task Management API
 
 Simple REST API built using Spring Boot.
 
