@@ -18,7 +18,7 @@ Technologies:
 - MySQL
 - Maven
 
-## Setup
+## Note
 Update your MySQL credentials in `application.properties` before running the application.
 
 Author:
