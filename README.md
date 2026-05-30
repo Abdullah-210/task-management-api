@@ -21,5 +21,6 @@ Technologies:
 ## Note
 Update your MySQL credentials in `application.properties` before running the application.
 
+
 Author:
 Abdullah
