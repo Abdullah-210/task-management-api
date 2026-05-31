@@ -2,7 +2,7 @@
 
 A secure REST API built with Spring Boot for managing tasks.
 
-## Features:
+## Features
 - User registration
 - User login
 - JWT authentication
@@ -10,7 +10,7 @@ A secure REST API built with Spring Boot for managing tasks.
 - CRUD Operations for tasks
 - MySQL database
 
-## Installation:
+## Installation
 1. Clone the repository 
 2. Open the project in your preferred Java IDE (I used IntelliJ IDEA)
 3. Create a MySQL database named: taskmanager
@@ -18,7 +18,7 @@ A secure REST API built with Spring Boot for managing tasks.
 5. Run the application
 6. Access the API at: http://localhost:8080
 
-## Testing:
+## Testing
 Can be tested using Postman.\
 Example endpoints:
 - POST http://localhost:8080/auth/register
@@ -26,7 +26,7 @@ Example endpoints:
 - GET /tasks
 - POST /tasks
 - PUT /tasks/{id}
-- DELETE /tasks/{id}\
+- DELETE /tasks/{id}
 
-Author:
+Author:\
 Abdullah
