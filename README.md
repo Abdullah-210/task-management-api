@@ -28,5 +28,5 @@ Example endpoints:
 - PUT /tasks/{id}
 - DELETE /tasks/{id}
 
-Author\
+## Author\
 Abdullah
