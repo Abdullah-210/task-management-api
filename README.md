@@ -21,12 +21,12 @@ A secure REST API built with Spring Boot for managing tasks.
 ## Testing
 Can be tested using Postman.
 Example endpoints:
-POST http://localhost:8080/auth/register
-POST /auth/login
-GET /tasks
-POST /tasks
-PUT /tasks/{id}
-DELETE /tasks/{id}
+- POST http://localhost:8080/auth/register
+- POST /auth/login
+- GET /tasks
+- POST /tasks
+- PUT /tasks/{id}
+- DELETE /tasks/{id}
 
 Author:
 Abdullah
