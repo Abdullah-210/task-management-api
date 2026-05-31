@@ -3,6 +3,7 @@ package com.abdullah.taskmanager.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import com.abdullah.taskmanager.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Task {
@@ -11,6 +12,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

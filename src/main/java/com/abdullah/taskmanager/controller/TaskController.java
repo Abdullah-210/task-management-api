@@ -2,6 +2,7 @@ package com.abdullah.taskmanager.controller;
 
 import com.abdullah.taskmanager.model.Task;
 import com.abdullah.taskmanager.service.TaskService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,13 +23,16 @@ public class TaskController {
     }
 
     @PostMapping("/tasks")
-    public String createTask(@Valid @RequestBody Task task) {
-        return taskService.createTask(task);
+    public String createTask(@Valid @RequestBody Task task,
+                             HttpServletRequest request) {
+        String username = (String) request.getAttribute("username");
+        return taskService.createTask(task, username);
     }
 
     @GetMapping("/tasks")
-    public List<Task> getTasks() {
-        return taskService.getTasks();
+    public List<Task> getTasks(HttpServletRequest request) {
+        String username = (String) request.getAttribute("username");
+        return taskService.getTasks(username);
     }
 
     @GetMapping("/tasks/{id}")

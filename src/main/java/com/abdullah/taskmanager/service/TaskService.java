@@ -2,6 +2,8 @@ package com.abdullah.taskmanager.service;
 
 import com.abdullah.taskmanager.model.Task;
 import com.abdullah.taskmanager.repository.TaskRepository;
+import com.abdullah.taskmanager.user.User;
+import com.abdullah.taskmanager.user.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,18 +12,28 @@ import java.util.List;
 public class TaskService {
 
     private final TaskRepository taskRepository;
+    private final UserRepository userRepository;
 
-    public TaskService(TaskRepository taskRepository) {
+    public TaskService(TaskRepository taskRepository, UserRepository userRepository) {
         this.taskRepository = taskRepository;
+        this.userRepository = userRepository;
     }
 
-    public String createTask(Task task) {
+    public String createTask(Task task, String username) {
+        User user = userRepository.findByUsername(username).orElse(null);
+
+        if (user == null) {
+            return "User not found";
+        }
+
+        task.setUser(user);
         taskRepository.save(task);
+
         return "Task created: " + task.getTitle();
     }
 
-    public List<Task> getTasks() {
-        return taskRepository.findAll();
+    public List<Task> getTasks(String username) {
+        return taskRepository.findByUserUsername(username);
     }
 
     public Task getTaskById(Long id) {
