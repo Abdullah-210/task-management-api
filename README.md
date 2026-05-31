@@ -27,6 +27,6 @@ Example endpoints:
 - POST /tasks
 - PUT /tasks/{id}
 - DELETE /tasks/{id}
-\
+
 Author\
 Abdullah
