@@ -18,7 +18,7 @@ A secure REST API built with Spring Boot for managing tasks.
 5. Run the application
 6. Access the API at: http://localhost:8080
 
-## Testing
+## Testing:
 Can be tested using Postman.\
 Example endpoints:
 - POST http://localhost:8080/auth/register
@@ -26,7 +26,7 @@ Example endpoints:
 - GET /tasks
 - POST /tasks
 - PUT /tasks/{id}
-- DELETE /tasks/{id}
+- DELETE /tasks/{id}\
 
-# Author:
+Author:
 Abdullah
