@@ -36,20 +36,43 @@ public class TaskService {
         return taskRepository.findByUserUsername(username);
     }
 
-    public Task getTaskById(Long id) {
-        return taskRepository.findById(id).orElse(null);
-    }
-
-    public String deleteTask(Long id) {
-        taskRepository.deleteById(id);
-        return "Task deleted with id: " + id;
-    }
-
-    public Task updateTask(Long id, Task updatedTask) {
-
+    public Task getTaskById(Long id, String username) {
         Task task = taskRepository.findById(id).orElse(null);
 
         if (task == null) {
+            return null;
+        }
+
+        if (task.getUser() == null || !task.getUser().getUsername().equals(username)) {
+            return null;
+        }
+
+        return task;
+    }
+
+    public String deleteTask(Long id, String username) {
+        Task task = taskRepository.findById(id).orElse(null);
+
+        if (task == null) {
+            return "Task not found";
+        }
+
+        if (task.getUser() == null || !task.getUser().getUsername().equals(username)) {
+            return "You are not allowed to delete this task";
+        }
+
+        taskRepository.delete(task);
+        return "Task deleted with id: " + id;
+    }
+
+    public Task updateTask(Long id, Task updatedTask, String username) {
+        Task task = taskRepository.findById(id).orElse(null);
+
+        if (task == null) {
+            return null;
+        }
+
+        if (task.getUser() == null || !task.getUser().getUsername().equals(username)) {
             return null;
         }
 

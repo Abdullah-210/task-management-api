@@ -36,18 +36,24 @@ public class TaskController {
     }
 
     @GetMapping("/tasks/{id}")
-    public Task getTaskById(@PathVariable Long id) {
-        return taskService.getTaskById(id);
+    public Task getTaskById(@PathVariable Long id,
+                            HttpServletRequest request) {
+        String username = (String) request.getAttribute("username");
+        return taskService.getTaskById(id, username);
     }
 
     @DeleteMapping("/tasks/{id}")
-    public String deleteTask(@PathVariable Long id) {
-        return taskService.deleteTask(id);
+    public String deleteTask(@PathVariable Long id,
+                             HttpServletRequest request) {
+        String username = (String) request.getAttribute("username");
+        return taskService.deleteTask(id, username);
     }
 
     @PutMapping("/tasks/{id}")
     public Task updateTask(@PathVariable Long id,
-                           @Valid @RequestBody Task updatedTask) {
-        return taskService.updateTask(id, updatedTask);
+                           @Valid @RequestBody Task updatedTask,
+                           HttpServletRequest request) {
+        String username = (String) request.getAttribute("username");
+        return taskService.updateTask(id, updatedTask, username);
     }
 }
