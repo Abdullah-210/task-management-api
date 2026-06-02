@@ -19,7 +19,7 @@ public class TaskController {
 
     @GetMapping("/")
     public String hello() {
-        return "API Working";
+        return "Task Management API is running :)";
     }
 
     @PostMapping("/tasks")
